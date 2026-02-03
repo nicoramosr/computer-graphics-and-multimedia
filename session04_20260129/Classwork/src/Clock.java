@@ -30,32 +30,40 @@ public class Clock {
             int x = (int)(wCenter + (r-20) * Math.cos(angle));
             int y = (int)(hCenter + (r-20) * Math.sin(angle));
             image.setRGB(x, y, Color.white.getRGB());
-
-        for(int dx = -1; dx <= 1; dx++) {
-            for(int dy = -1; dy <= 1; dy++) {                       //making the hour marks thicker
-            image.setRGB(x + dx, y + dy, Color.white.getRGB());
+    
+            for(int dx = -1; dx <= 1; dx++) {
+                for(int dy = -1; dy <= 1; dy++) {                       //making the hour marks thicker
+                    image.setRGB(x + dx, y + dy, Color.white.getRGB());
+                }
             }
         }
-            
-        int hour = 10;
-        int minutes = 10;
+
+        int hour = 1;
+        int minutes = 30;
 
         double hourAngle = (hour * 2*Math.PI / 12) + (minutes * 2*Math.PI / (12*60));   //hour hand angle
         double minuteAngle = (minutes * 2*Math.PI / 60);                                //minute hand angle
-        
-        for(int length = 0; length < r * 0.5; length++) {          //drawing hour hand
-            int a = (int)(wCenter + length * Math.cos(hourAngle));
-            int b = (int)(hCenter + length * Math.sin(hourAngle));
-            image.setRGB(a, b, Color.white.getRGB());
-        }
-        
-        for(int length = 0; length < r * 0.7; length++) {          //drawing minute hand
-            int a = (int)(wCenter + length * Math.cos(minuteAngle));
-            int b = (int)(hCenter + length * Math.sin(minuteAngle));
-            image.setRGB(a, b, Color.white.getRGB());
-        }
-        
 
+        int hourLength = 100;
+        int hourX = (int)(wCenter + hourLength * Math.cos(hourAngle - Math.PI/2));
+        int hourY = (int)(hCenter + hourLength * Math.sin(hourAngle - Math.PI/2));
+
+        for(double t = 0; t <= 1; t += 0.01) {
+            int x = (int)(wCenter + (hourX - wCenter) * t);
+            int y = (int)(hCenter + (hourY - hCenter) * t);
+            image.setRGB(x, y, Color.white.getRGB());
+        }
+
+        int minuteLength = 200;
+        int minuteX = (int)(wCenter + minuteLength * Math.cos(minuteAngle - Math.PI/2));
+        int minuteY = (int)(hCenter + minuteLength * Math.sin(minuteAngle - Math.PI/2));
+
+        for(double t = 0; t <= 1; t += 0.01) {
+            int x = (int)(wCenter + (minuteX - wCenter) * t);
+            int y = (int)(hCenter + (minuteY - hCenter) * t);
+            image.setRGB(x, y, Color.white.getRGB());
+        }
+        
         File outputfile = new File("clock.png");
         try {
             ImageIO.write(image, "png", outputfile);
@@ -65,5 +73,6 @@ public class Clock {
 
         }
     }
-}
+
+
 
