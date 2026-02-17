@@ -1,0 +1,26 @@
+import java.io.*;
+
+public class LandscapeSVG {
+        public static void main(String[] args) {
+        try {
+            FileWriter f = new FileWriter("landscape.svg");
+            f.write("<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"480\" height=\"360\">");
+            f.write("<rect width=\"480\" height=\"360\" fill=\"white\"/>");
+            f.write("<line x1=\"90\" y1=\"30\" x2=\"90\" y2=\"70\" stroke=\"black\" stroke-width=\"1\"/>");
+            f.write("<line x1=\"90\" y1=\"110\" x2=\"90\" y2=\"150\" stroke=\"black\" stroke-width=\"1\"/>");
+            f.write("<line x1=\"10\" y1=\"90\" x2=\"50\" y2=\"90\" stroke=\"black\" stroke-width=\"1\"/>");
+            f.write("<line x1=\"130\" y1=\"90\" x2=\"170\" y2=\"90\" stroke=\"black\" stroke-width=\"1\"/>");
+            f.write("<line x1=\"58\" y1=\"58\" x2=\"40\" y2=\"40\" stroke=\"black\" stroke-width=\"1\"/>");
+            f.write("<line x1=\"122\" y1=\"58\" x2=\"140\" y2=\"40\" stroke=\"black\" stroke-width=\"1\"/>");
+            f.write("<line x1=\"58\" y1=\"122\" x2=\"40\" y2=\"140\" stroke=\"black\" stroke-width=\"1\"/>");
+            f.write("<line x1=\"122\" y1=\"122\" x2=\"140\" y2=\"140\" stroke=\"black\" stroke-width=\"1\"/>");
+            f.write("<circle cx=\"90\" cy=\"90\" r=\"45\" fill=\"yellow\" stroke=\"black\" stroke-width=\"1\"/>");
+            f.write("<path d=\"M0,270 Q30,230 60,270 Q90,230 120,270 Q150,230 180,270 Q210,230 240,270 Q270,230 300,270 Q330,230 360,270 Q390,230 420,270 Q450,230 480,270 L480,360 L0,360 Z\" fill=\"#4DCC00\"/>");
+            f.write("</svg>");
+            f.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
