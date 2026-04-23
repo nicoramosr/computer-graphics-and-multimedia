@@ -1,0 +1,11 @@
+api\OpenAIClient.class
+image\ImageGenerator.class
+loader\MediaLoader.class
+model\MediaFile$Type.class
+video\VideoAssembler.class
+gui\AppWindow$1.class
+model\MediaFile.class
+narrator\NarratorTTS.class
+api\MapboxClient.class
+video\VideoAssembler$Slide.class
+gui\AppWindow.class
